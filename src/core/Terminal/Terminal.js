@@ -9,15 +9,19 @@ function Terminal(terminal){
     this.m_MODES = ['null','main', 'sub'];
 }
 
-// * getters / setters
+// **************************
+// ! getters / setters
 
 Terminal.prototype.getMode = function () {return this.m_status};
 Terminal.prototype.getInput = function (){return this.m_input};
 
+// **************************
+
+
+
 Terminal.prototype.newPrompt = function (){
     if(this.m_status != 'main') {
-        console.log("Terminal is toggled off.");
-        return;
+        throw new Error("Terminal is toggled off.");
     }
     const prompt = document.createElement('p');
     const content = document.createElement('span');
