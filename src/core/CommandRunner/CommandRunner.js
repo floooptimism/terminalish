@@ -1,11 +1,6 @@
-const CommandRunner = (function (){
+import CommandTable from "../CommandTable/CommandTable";
 
-    // test comands
-    let _commands = {
-        echo: function(){
-            alert("echo");
-        }
-    }
+const CommandRunner = (function (){
 
     function run(command){
         let args = undefined;
@@ -14,8 +9,8 @@ const CommandRunner = (function (){
                 args = command[1];
             }
 
-            if(_commands[command[0]]){
-                _commands[command[0]](args);
+            if(CommandTable.is_command_exist(command[0])){
+                CommandTable.run_command(command[0], args);
             }else{
                 //TODO invalid command
             }
