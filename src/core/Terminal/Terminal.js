@@ -80,7 +80,6 @@ Terminal.prototype.toggle = function(val){
     let pos = this.m_MODES.indexOf(val);
     if(pos < 0){
         throw new Error("Terminal.toggle -> Invalid mode specified.");
-        return;
     }
     this.m_mode = val;
 }
