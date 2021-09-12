@@ -2,7 +2,7 @@ import CommandTable from "../CommandTable/CommandTable";
 
 const CommandRunner = (function (){
 
-    function run(command){
+    async function run(command){
         let args = undefined;
         if(typeof(command) == "object"){
             if(command.length > 1){
@@ -10,7 +10,7 @@ const CommandRunner = (function (){
             }
 
             if(CommandTable.is_command_exist(command[0])){
-                CommandTable.run_command(command[0], args);
+                await CommandTable.run_command(command[0], args);
             }else{
                 //TODO invalid command
             }
